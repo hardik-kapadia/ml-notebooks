@@ -148,6 +148,9 @@ class DescisionTree:
             temp = t
 
     def test(self, testing_X, testing_Y):
+        
+        if(not self.node):
+            raise SyntaxError("Please train the model first")
 
         correct = 0
         wrong = 0
