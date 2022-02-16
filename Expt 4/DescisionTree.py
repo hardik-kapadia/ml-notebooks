@@ -97,7 +97,7 @@ def get_descision_tree(current_df: pd.DataFrame, target_data: pd.Series, depth: 
             max_ig = temp_ig
             selected_col = col
 
-    if max_ig <= 0.005 or depth >= 10:
+    if max_ig <= 0.001 or depth >= 10:
         return DescisionTreeNode(target_data.value_counts().idxmax())
 
     x = current_df[selected_col]
