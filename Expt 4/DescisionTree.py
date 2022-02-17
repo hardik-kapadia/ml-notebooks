@@ -75,7 +75,7 @@ class DescisionTreeNode:
 
         print(self.feature)
         for k, v in self.nodes.items():
-            for i in range(tabs):
+            for _ in range(tabs):
                 print("\t", end="")
             print(f"|-> {k}:")
             v.print_tree(tabs+1)
