@@ -1,0 +1,117 @@
+BP
+|-> HIGH:
+|	Na_to_K
+|	|-> MEDIUM:
+|	|	Age
+|	|	|-> MIDDLE:
+|	|	|	Cholesterol
+|	|	|	|-> NORMAL:
+|	|	|	|	Sex
+|	|	|	|	|-> F:
+|	|	|	|	|	drugY
+|	|	|	|	|-> M:
+|	|	|	|	|	drugA
+|	|	|	|-> HIGH:
+|	|	|	|	Sex
+|	|	|	|	|-> M:
+|	|	|	|	|	drugY
+|	|	|	|	|-> F:
+|	|	|	|	|	drugA
+|	|	|-> YOUNG:
+|	|	|	Cholesterol
+|	|	|	|-> NORMAL:
+|	|	|	|	Sex
+|	|	|	|	|-> M:
+|	|	|	|	|	drugY
+|	|	|	|	|-> F:
+|	|	|	|	|	drugY
+|	|	|	|-> HIGH:
+|	|	|	|	drugA
+|	|	|-> OLD:
+|	|	|	Cholesterol
+|	|	|	|-> HIGH:
+|	|	|	|	Sex
+|	|	|	|	|-> M:
+|	|	|	|	|	drugB
+|	|	|	|	|-> F:
+|	|	|	|	|	drugB
+|	|	|	|-> NORMAL:
+|	|	|	|	drugB
+|	|-> LOW:
+|	|	Age
+|	|	|-> OLD:
+|	|	|	drugB
+|	|	|-> MIDDLE:
+|	|	|	Cholesterol
+|	|	|	|-> HIGH:
+|	|	|	|	drugA
+|	|	|	|-> NORMAL:
+|	|	|	|	drugA
+|	|	|-> YOUNG:
+|	|	|	drugA
+|	|-> HIGH:
+|	|	drugY
+|-> NORMAL:
+|	Na_to_K
+|	|-> LOW:
+|	|	drugX
+|	|-> MEDIUM:
+|	|	Age
+|	|	|-> MIDDLE:
+|	|	|	Cholesterol
+|	|	|	|-> HIGH:
+|	|	|	|	drugY
+|	|	|	|-> NORMAL:
+|	|	|	|	Sex
+|	|	|	|	|-> F:
+|	|	|	|	|	drugY
+|	|	|	|	|-> M:
+|	|	|	|	|	drugX
+|	|	|-> YOUNG:
+|	|	|	Sex
+|	|	|	|-> M:
+|	|	|	|	Cholesterol
+|	|	|	|	|-> HIGH:
+|	|	|	|	|	drugY
+|	|	|	|	|-> NORMAL:
+|	|	|	|	|	drugX
+|	|	|	|-> F:
+|	|	|	|	drugX
+|	|	|-> OLD:
+|	|	|	Sex
+|	|	|	|-> F:
+|	|	|	|	drugX
+|	|	|	|-> M:
+|	|	|	|	drugY
+|	|-> HIGH:
+|	|	drugY
+|-> LOW:
+|	Na_to_K
+|	|-> LOW:
+|	|	Cholesterol
+|	|	|-> HIGH:
+|	|	|	drugC
+|	|	|-> NORMAL:
+|	|	|	drugX
+|	|-> MEDIUM:
+|	|	Cholesterol
+|	|	|-> HIGH:
+|	|	|	Age
+|	|	|	|-> MIDDLE:
+|	|	|	|	Sex
+|	|	|	|	|-> M:
+|	|	|	|	|	drugY
+|	|	|	|	|-> F:
+|	|	|	|	|	drugY
+|	|	|	|-> OLD:
+|	|	|	|	drugY
+|	|	|	|-> YOUNG:
+|	|	|	|	drugC
+|	|	|-> NORMAL:
+|	|	|	Sex
+|	|	|	|-> F:
+|	|	|	|	drugX
+|	|	|	|-> M:
+|	|	|	|	drugX
+|	|-> HIGH:
+|	|	drugY

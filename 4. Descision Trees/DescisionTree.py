@@ -71,15 +71,18 @@ class DescisionTreeNode:
     def print_tree(self, tabs=0):
 
         for i in range(tabs):
-            print("\t", end="")
+            print("|\t", end="")
 
         print(self.feature)
         for k, v in self.nodes.items():
             for _ in range(tabs):
-                print("\t", end="")
+                print("|\t", end="")
             print(f"|-> {k}:")
             v.print_tree(tabs+1)
-            print()
+            
+        
+        
+        
 
 
 def get_descision_tree(current_df: pd.DataFrame, target_data: pd.Series, depth: int = 0):
