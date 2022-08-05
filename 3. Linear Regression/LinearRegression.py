@@ -115,7 +115,7 @@ class Linear_Regression:
     
     def plot_gradient_descent(self):
         plt.plot(self.loss_vals)
-        plt.xlabel('iteration')
+        plt.xlabel('epochs')
         plt.ylabel('loss')
         plt.title('Gradient descent')
         plt.show()
