@@ -11,6 +11,8 @@ def mean_squared_error(actual_values: np.array, training_data: pd.DataFrame, coe
         raise ValueError(
             'Number of coefs should match number of independent variables')
 
+    cof = np.array(coefs)
+
     loss = 0
     n = len(actual_values)
 
@@ -22,10 +24,14 @@ def mean_squared_error(actual_values: np.array, training_data: pd.DataFrame, coe
         for i in range(r.size):
             t = (t - (coefs[i] * r[i]))
 
-        t -= constant
+        # t -= np.dot(cof,r)
+        # t -= constant
+        
         loss += t*t
 
     loss /= n
+    
+    # print(f'final loss: {loss}')
 
     return loss
 

@@ -24,25 +24,48 @@ def gradient_descent(actual_values: np.array, training_data: pd.DataFrame, loss_
         d = 0
         for_constant = wrt == -1
 
-        def multiplier(
-            arr: np.array) -> float: return 1 if for_constant else float(arr[wrt])
+        cof = np.array(coefs)
 
-        for index, row in training_data.iterrows():
+        # def multiplier(
+        #     arr: np.array) -> float: return 1 if for_constant else float(arr[wrt])
+        
+        
+        
+        arr_x = training_data.to_numpy()
+        
+        arr_x_t = np.transpose(arr_x)
+        
+        # print(f'here: {np.dot(cof,arr_x_t)}')
 
-            r = row.to_numpy()
-            t = actual_values[index]
+        ans = np.dot(cof,arr_x_t) - actual_values
+        
+        # print(f'Shape of ans before fina step: {ans.shape}')
+        
+        if wrt != -1:
+            ans = np.dot(ans,arr_x_t[wrt])
+        else:
+            ans = np.dot(ans,1)
+            
+        # print(f'Shape of ans after fina step: {type(ans)}')
+            
 
-            for i in range(r.size):
-                t = (t - (coefs[i]*r[i]))
+        # for index, row in training_data.iterrows():
 
-            t = t*multiplier(r)
+        #     r = row.to_numpy()
+        #     t = actual_values[index]
+                
+        #     t -= np.dot(cof,r)
 
-            d += t
+        #     t = t*multiplier(r)
+
+        #     d += t
 
         n = len(actual_values)
-        d = d * -2/n
+        ans = ans * 1/n
+        
+        # print(type(ans))
 
-        return d
+        return ans
 
     cols = training_data.shape[1]
     coefs = [0 for i in range(cols)]
@@ -115,7 +138,7 @@ class Linear_Regression:
     
     def plot_gradient_descent(self):
         plt.plot(self.loss_vals)
-        plt.xlabel('iteration')
+        plt.xlabel('epochs')
         plt.ylabel('loss')
         plt.title('Gradient descent')
         plt.show()
