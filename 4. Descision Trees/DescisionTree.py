@@ -21,10 +21,11 @@ def get_entropy(x: pd.Series) -> float:
 
 def intelligence_gain(x: pd.Series, y: pd.Series) -> float:
 
-    entropy = get_entropy(y)
+    # entropy = get_entropy(y)
+    ig = get_entropy(y)
 
-    entropies = []
-    counts = []
+    # entropies = []
+    # counts = []
 
     l = x.size
 
@@ -33,14 +34,16 @@ def intelligence_gain(x: pd.Series, y: pd.Series) -> float:
     for i in ind:
         x_i = x[x == i]
         y_i = y.loc[x_i.index]
+        
+        ig -= ((x_i.size/l)*get_entropy(y_i))
 
-        entropies.append(get_entropy(y_i))
-        counts.append(x_i.size)
+        # entropies.append(get_entropy(y_i))
+        # counts.append(x_i.size)
 
-    ig = entropy
+    # ig = entropy
 
-    for i in range(len(entropies)):
-        ig -= ((counts[i]/l)*entropies[i])
+    # for i in range(len(entropies)):
+    #     ig -= ((counts[i]/l)*entropies[i])
 
     return ig
 
@@ -80,12 +83,9 @@ class DescisionTreeNode:
             print(f"|-> {k}:")
             v.print_tree(tabs+1)
             
-        
-        
-        
 
 
-def get_descision_tree(current_df: pd.DataFrame, target_data: pd.Series, depth: int = 0):
+def get_descision_tree(current_df: pd.DataFrame, target_data: pd.Series, depth: int = 0, max_depth: int = 10, ig_limit: float = 0.001):
 
     cols = current_df.columns.tolist()
 
@@ -100,12 +100,10 @@ def get_descision_tree(current_df: pd.DataFrame, target_data: pd.Series, depth: 
             max_ig = temp_ig
             selected_col = col
 
-    if max_ig <= 0.001 or depth >= 10:
+    if max_ig <= ig_limit or depth >= max_depth:
         return DescisionTreeNode(target_data.value_counts().idxmax())
 
-    x = current_df[selected_col]
-
-    vals = x.value_counts().index.tolist()
+    vals = current_df[selected_col].value_counts().index.tolist()
 
     node = DescisionTreeNode(selected_col, vals)
 
